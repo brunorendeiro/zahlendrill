@@ -52,6 +52,9 @@ type UiStrings = {
   nextButton: string
   resetButton: string
   footerTagline: string
+  cookieBody: string
+  cookieAccept: string
+  cookieReject: string
 }
 
 export const ui: Record<Locale, UiStrings> = {
@@ -77,6 +80,9 @@ export const ui: Record<Locale, UiStrings> = {
     nextButton: 'Seguinte',
     resetButton: 'Recomeçar sessão',
     footerTagline: 'Sem contas · pronúncia no browser · só prática',
+    cookieBody: 'Uso o Google Analytics para perceber quantas pessoas visitam este projeto. Aceitas cookies analíticos?',
+    cookieAccept: 'Aceitar',
+    cookieReject: 'Recusar',
   },
   en: {
     brandTagline: 'German numbers',
@@ -100,6 +106,9 @@ export const ui: Record<Locale, UiStrings> = {
     nextButton: 'Next',
     resetButton: 'Restart session',
     footerTagline: 'No accounts · pronunciation in the browser · just practice',
+    cookieBody: 'I use Google Analytics to understand how many people visit this project. Do you accept analytics cookies?',
+    cookieAccept: 'Accept',
+    cookieReject: 'Reject',
   },
   de: {
     brandTagline: 'Zahlen auf Deutsch',
@@ -123,5 +132,8 @@ export const ui: Record<Locale, UiStrings> = {
     nextButton: 'Weiter',
     resetButton: 'Sitzung neu starten',
     footerTagline: 'Keine Konten · Aussprache im Browser · nur Übung',
+    cookieBody: 'Ich verwende Google Analytics, um zu verstehen, wie viele Menschen dieses Projekt besuchen. Akzeptierst du Analyse-Cookies?',
+    cookieAccept: 'Akzeptieren',
+    cookieReject: 'Ablehnen',
   },
 }

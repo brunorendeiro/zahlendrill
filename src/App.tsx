@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { germanNumberWord, numbersInRange, rangeKeys, speakGerman, type RangeKey } from './data/germanNumbers'
 import { detectLocale, locales, modeLabels, rangeLabels, ui, type Locale, type ModeKey } from './i18n'
+import { getStoredConsent, loadAnalytics } from './analytics'
+import CookieConsent from './CookieConsent'
 
 const modeKeys: ModeKey[] = ['flashcards', 'quizWord', 'quizNumber', 'listening']
 
@@ -54,6 +56,10 @@ export default function App() {
   useEffect(() => {
     window.localStorage.setItem('zahlendrill-best-streak', String(bestStreak))
   }, [bestStreak])
+
+  useEffect(() => {
+    if (getStoredConsent() === 'granted') loadAnalytics()
+  }, [])
 
   function newRound(nextPool: number[] = pool, nextMode: ModeKey = mode) {
     const target = pickNumber(nextPool, current)
@@ -192,6 +198,11 @@ export default function App() {
       </section>}
     </main>
 
-    <footer>{t.footerTagline}</footer>
+    <footer>
+      <span>{t.footerTagline}</span>
+      <a href="https://vibe-portfolio-one.vercel.app/" target="_blank" rel="noreferrer">Created by Bruno Rendeiro</a>
+      <span className="powered-badge">⚡ Powered by AI</span>
+    </footer>
+    <CookieConsent locale={locale} />
   </div>
 }
