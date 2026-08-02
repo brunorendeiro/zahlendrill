@@ -96,7 +96,7 @@ export default function App() {
 
   return <div className="app-shell">
     <header>
-      <div className="brand"><span className="brand-mark">DE</span><div><strong>ZahlenDrill</strong><small>{t.brandTagline}</small></div></div>
+      <h1 className="brand"><span className="brand-mark">DE</span><div><strong>ZahlenDrill</strong><small>{t.brandTagline}</small></div></h1>
       <div className="locale-switch" role="group" aria-label="Language">
         {locales.map(item => (
           <button key={item.id} type="button" className={locale === item.id ? 'active' : ''} onClick={() => setLocale(item.id)}>{item.label}</button>
