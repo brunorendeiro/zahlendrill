@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { germanNumberWord, numbersInRange, rangeKeys, speakGerman, type RangeKey } from './data/germanNumbers'
 import { detectLocale, locales, modeLabels, rangeLabels, ui, type Locale, type ModeKey } from './i18n'
-import { getStoredConsent, loadAnalytics } from './analytics'
+import { getStoredConsent, loadAnalytics, loadAds } from './analytics'
 import CookieConsent from './CookieConsent'
 
 const modeKeys: ModeKey[] = ['flashcards', 'quizWord', 'quizNumber', 'listening']
@@ -58,7 +58,10 @@ export default function App() {
   }, [bestStreak])
 
   useEffect(() => {
-    if (getStoredConsent() === 'granted') loadAnalytics()
+    if (getStoredConsent() === 'granted') {
+      loadAnalytics()
+      loadAds()
+    }
   }, [])
 
   function newRound(nextPool: number[] = pool, nextMode: ModeKey = mode) {
